@@ -1,7 +1,7 @@
-Icetea Studio
+PolkaFoundry Studio
 ====
 
-This repository contains the [Icetea Studio](https://studio.icetea.io) website source code.
+This repository contains the [PolkaFoundry Studio](https://studio.icetea.io) website source code.
 
 Running your own local copy of the website
 ===
@@ -12,7 +12,7 @@ To run a local copy, you will need to install node.js and webpack on your comput
 npm install
 ```
 
-To build Icetea Studio whenever a file changes run:
+To build PolkaFoundry Studio whenever a file changes run:
 
 ```
 npm run build-watch

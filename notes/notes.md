@@ -1,3 +1,3 @@
-# Icetea Studio
+# PolkaFoundry Studio
 
-A web IDE to write smart contract for [Icetea blockchain](https://icetea.io)
+A web IDE to write smart contract for [PolkaFoundry blockchain](https://icetea.io)
