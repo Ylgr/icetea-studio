@@ -16,7 +16,7 @@
   },
   "wasmStudio": {
     "name": "Dice JavaScript Chatbot",
-    "description": "# Dice JavaScript Chatbot\n\nA sample JavaScript dice chatbot for [Icetea platform](https://icetea.io). After deploying, you need to transfer some TEA to it so that it could accept betting.",
+    "description": "# Dice JavaScript Chatbot\n\nA sample JavaScript dice chatbot for [PolkaFoundry platform](https://icetea.io). After deploying, you need to transfer some TEA to it so that it could accept betting.",
     "icon": "javascript-lang-file-icon"
   }
 }

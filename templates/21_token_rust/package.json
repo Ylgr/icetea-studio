@@ -16,7 +16,7 @@
   },
   "wasmStudio": {
     "name": "Sample Token - Wasm Smart Contract in Rust",
-    "description": "# Sample Token - Wasm Smart Contract in Rust\n\nThis is a sample Rust project which compiles into a WebAssembly smart contract for [Icetea platform](https://icetea.io).",
+    "description": "# Sample Token - Wasm Smart Contract in Rust\n\nThis is a sample Rust project which compiles into a WebAssembly smart contract for [PolkaFoundry platform](https://icetea.io).",
     "icon": "rust-lang-file-icon"
   }
 }

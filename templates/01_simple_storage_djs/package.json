@@ -16,7 +16,7 @@
   },
   "wasmStudio": {
     "name": "Simple Storage - JavaScript Smart Contract",
-    "description": "# Simple Storage - JavaScript Smart Contract\n\nThis is a sample 'Simple Storage' JavaScript smart contract for [Icetea platform](https://icetea.io).",
+    "description": "# Simple Storage - JavaScript Smart Contract\n\nThis is a sample 'Simple Storage' JavaScript smart contract for [PolkaFoundry platform](https://icetea.io).",
     "icon": "javascript-lang-file-icon"
   }
 }
