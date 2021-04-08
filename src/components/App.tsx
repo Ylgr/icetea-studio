@@ -99,8 +99,8 @@ import { SaveCFDialog } from './SaveCFDialog';
 import { DeployContractDialog } from './DeployContractDialog';
 import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
 import { isDeepStrictEqual } from 'util';
-import { IceteaWeb3 } from '@iceteachain/web3';
-const tweb3 = new IceteaWeb3('https://rpc.icetea.io');
+import { GlitchWeb3 } from '@glitchdefi/web3';
+const tweb3 = new GlitchWeb3('http://172.16.1.209:26657');
 
 export interface AppState {
   project: ModelRef<Project>;
@@ -591,7 +591,7 @@ export class App extends React.Component<AppProps, AppState> {
           label="Edit in Icetea Studio"
           title="Edit Project in Icetea Studio"
           isDisabled={!this.state.fiddle}
-          href={`//studio.icetea.io/?f=${this.state.fiddle}`}
+          href={`//172.16.1.209:28443//?f=${this.state.fiddle}`}
           target="wasm.studio"
           rel="noopener noreferrer"
         />

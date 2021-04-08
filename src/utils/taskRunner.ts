@@ -23,8 +23,8 @@ import { Project, fileTypeForExtension, mimeTypeForFileType } from "../models";
 import { Gulpy } from "../gulpy";
 import { Service } from "../service";
 import { Arc } from "../arc";
-const sunseed = require("@iceteachain/sunseed");
-const tweb3 = require("@iceteachain/web3");
+const sunseed = require("@glitchdefi/sunseed");
+const tweb3 = require("@glitchdefi/web3");
 
 export enum RunTaskExternals {
   Default,
@@ -206,8 +206,8 @@ export async function runTask(
         Arc: externals === RunTaskExternals.Arc ? Arc : undefined,
         eval: externals === RunTaskExternals.Setup ? unsafeEval : undefined
       },
-      "@iceteachain/sunseed": sunseed,
-      "@iceteachain/web3": tweb3,
+      "@glitchdefi/sunseed": sunseed,
+      "@glitchdefi/web3": tweb3,
       "base64-arraybuffer": require("base64-arraybuffer")
     }
   )();

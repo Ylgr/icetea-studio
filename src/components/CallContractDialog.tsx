@@ -24,9 +24,9 @@ import * as ReactModal from 'react-modal';
 import QueueAnim from 'rc-queue-anim';
 import { Button } from './shared/Button';
 import { GoX, GoCheck } from './shared/Icons';
-import { IceteaWeb3 } from '@iceteachain/web3';
+import { GlitchWeb3 } from '@glitchdefi/web3';
 import { MethodInfo, parseParamsFromField, formatResult, tryStringifyJson } from './RightPanel';
-const tweb3 = new IceteaWeb3('https://rpc.icetea.io');
+const tweb3 = new GlitchWeb3('http://172.16.1.209:26657');
 
 export default class CallContractDialog extends React.Component<
   {

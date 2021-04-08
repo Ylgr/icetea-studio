@@ -1,7 +1,7 @@
 import * as gulp from 'gulp';
 import { Service, project, activeTab, params, options } from '@wasm/studio-utils';
-import { transpile } from '@iceteachain/sunseed';
-import { IceteaWeb3 } from '@iceteachain/web3';
+import { transpile } from '@glitchdefi/sunseed';
+import { GlitchWeb3 } from '@glitchdefi/web3';
 import * as base64ArrayBuffer from 'base64-arraybuffer';
 
 const buildJs = async (file: string) => {
@@ -23,7 +23,7 @@ const buildJs = async (file: string) => {
 };
 
 const deployJs = async (file: string) => {
-  const tweb3 = new IceteaWeb3('https://rpc.icetea.io');
+  const tweb3 = new GlitchWeb3('http://172.16.1.209:26657');
 
   // Create a new account to deploy
   // To use existing account, use tweb3.wallet.importAccount(privateKey)
@@ -38,7 +38,7 @@ const deployJs = async (file: string) => {
   }
   const deployResult = await tweb3.deploy({ data: inFile.getData(), arguments: params }, options);
 
-  logLn('TxHash: https://scan.icetea.io/tx/' + deployResult.hash);
+  logLn('TxHash: http://172.16.1.209:3006/tx/' + deployResult.hash);
   logLn('Contract address: ' + deployResult.address);
 
   return deployResult;
@@ -57,7 +57,7 @@ const buildWasm = async (file: string) => {
 };
 
 const deployWasm = async (file: string) => {
-  const tweb3 = new IceteaWeb3('https://rpc.icetea.io');
+  const tweb3 = new GlitchWeb3('http://172.16.1.209:26657');
 
   // Create a new account to deploy
   // To use existing account, use tweb3.wallet.importAccount(privateKey)
@@ -72,7 +72,7 @@ const deployWasm = async (file: string) => {
   }
   const deployResult = await tweb3.deploy({ mode: 'wasm', data: base64ArrayBuffer.encode(inFile.getData()), arguments: params }, options);
 
-  logLn('TxHash: https://scan.icetea.io/tx/' + deployResult.hash);
+  logLn('TxHash: http://172.16.1.209:3006/tx/' + deployResult.hash);
   logLn('Contract address: ' + deployResult.address);
 
   return deployResult;

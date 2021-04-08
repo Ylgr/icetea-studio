@@ -11,8 +11,8 @@
     "gulp": "~3.9.1",
     "ts-node": "~5.0.0",
     "typescript": "~2.7.2",
-    "@iceteachain/sunseed": "0.1.0",
-    "@iceteachain/web3": "~0.1.3"
+    "@glitchdefi/sunseed": "0.0.1",
+    "@glitchdefi/web3": "~0.0.1"
   },
   "wasmStudio": {
     "name": "Dice JavaScript Chatbot",

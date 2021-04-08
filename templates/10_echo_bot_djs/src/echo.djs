@@ -1,4 +1,4 @@
-const { Message } = require('@iceteachain/utils')
+const { Message } = require('@glitchdefi/utils')
 
 @contract class EchoBot {
     @pure botInfo = {

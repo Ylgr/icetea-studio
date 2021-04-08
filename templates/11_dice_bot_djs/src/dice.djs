@@ -1,4 +1,4 @@
-const { SurveyBot, Message, utils } = require('@iceteachain/utils')
+const { SurveyBot, Message, utils } = require('@glitchdefi/utils')
 const Big = require('big.js')
 
 const DiceTypes = [{

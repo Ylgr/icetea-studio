@@ -24,8 +24,8 @@ import * as ReactModal from 'react-modal';
 import { Button } from './shared/Button';
 import { GoX, GoCheck } from './shared/Icons';
 import { parseParamsFromField } from './RightPanel';
-import { IceteaWeb3 } from '@iceteachain/web3';
-const tweb3 = new IceteaWeb3('https://rpc.icetea.io');
+import { GlitchWeb3 } from '@glitchdefi/web3';
+const tweb3 = new GlitchWeb3('http://172.16.1.209:26657');
 
 export class DeployContractDialog extends React.Component<
   {
