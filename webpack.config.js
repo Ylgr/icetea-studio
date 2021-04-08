@@ -13,7 +13,11 @@ module.exports = env => {
       path: path.resolve(__dirname, 'dist/'),
       publicPath: '/dist/',
     },
-
+    devServer: {
+      inline:true,
+      port: 28443,
+      disableHostCheck: true
+    },
     // Enable sourcemaps for debugging webpack's output.
     devtool: 'source-map',
 
