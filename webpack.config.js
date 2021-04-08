@@ -14,9 +14,9 @@ module.exports = env => {
       publicPath: '/dist/',
     },
     devServer: {
+      host: '0.0.0.0',
       inline:true,
-      port: 28443,
-      disableHostCheck: true
+      port: 28443
     },
     // Enable sourcemaps for debugging webpack's output.
     devtool: 'source-map',
