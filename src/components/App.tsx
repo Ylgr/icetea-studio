@@ -269,7 +269,9 @@ export class App extends React.Component<AppProps, AppState> {
       this.loadProjectFromFiddle(this.state.fiddle);
     }
     let address;
+    tweb3.wallet.importAccount('5nkaot9bhv2oBrx5epK18JsMmjWcRBMYqmQxnCUH53WV');
     let account = [];
+    account.push('tglc1tk5tsfhhrjvv37l9575qa6cjpae4urzc6jzlgk');
     for (let i = 0; i < 10; i++) {
       address = tweb3.wallet.createAccount().address;
       account.push(address);
