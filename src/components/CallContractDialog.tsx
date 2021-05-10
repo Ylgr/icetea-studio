@@ -26,7 +26,8 @@ import { Button } from './shared/Button';
 import { GoX, GoCheck } from './shared/Icons';
 import { GlitchWeb3 } from '@glitchdefi/web3';
 import { MethodInfo, parseParamsFromField, formatResult, tryStringifyJson } from './RightPanel';
-const tweb3 = new GlitchWeb3('http://172.16.1.209:26657');
+require('dotenv').config();
+const tweb3 = new GlitchWeb3(process.env.REACT_APP_BLOCKCHAIN_RPC);
 
 export default class CallContractDialog extends React.Component<
   {

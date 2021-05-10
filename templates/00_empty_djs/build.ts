@@ -23,7 +23,7 @@ const buildJs = async (file: string) => {
 };
 
 const deployJs = async (file: string) => {
-  const tweb3 = new GlitchWeb3('http://172.16.1.209:26657');
+  const tweb3 = new GlitchWeb3(process.env.REACT_APP_BLOCKCHAIN_RPC);
 
   // Create a new account to deploy
   // To use existing account, use tweb3.wallet.importAccount(privateKey)
@@ -36,9 +36,11 @@ const deployJs = async (file: string) => {
   if (!inFile) {
     throw new Error('You need to build the project first.');
   }
+  console.log('log1: ', { data: inFile.getData(), arguments: params })
+  console.log('log2: ', options)
   const deployResult = await tweb3.deploy({ data: inFile.getData(), arguments: params }, options);
 
-  logLn('TxHash: http://172.16.1.209:3006/tx/' + deployResult.hash);
+  logLn(`TxHash: ${process.env.REACT_APP_EXPLORER}/tx/` + deployResult.hash);
   logLn('Contract address: ' + deployResult.address);
 
   return deployResult;
@@ -57,7 +59,7 @@ const buildWasm = async (file: string) => {
 };
 
 const deployWasm = async (file: string) => {
-  const tweb3 = new GlitchWeb3('http://172.16.1.209:26657');
+  const tweb3 = new GlitchWeb3(process.env.REACT_APP_BLOCKCHAIN_RPC);
 
   // Create a new account to deploy
   // To use existing account, use tweb3.wallet.importAccount(privateKey)
@@ -72,7 +74,7 @@ const deployWasm = async (file: string) => {
   }
   const deployResult = await tweb3.deploy({ mode: 'wasm', data: base64ArrayBuffer.encode(inFile.getData()), arguments: params }, options);
 
-  logLn('TxHash: http://172.16.1.209:3006/tx/' + deployResult.hash);
+  logLn(`TxHash: ${process.env.REACT_APP_EXPLORER}/tx/` + deployResult.hash);
   logLn('Contract address: ' + deployResult.address);
 
   return deployResult;

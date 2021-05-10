@@ -1,7 +1,20 @@
 const path = require('path');
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+const dotenv = require('dotenv');
+const webpack = require('webpack');
 
 module.exports = env => {
+
+  // call dotenv and it will return an Object with a parsed key
+  const denv = dotenv.config().parsed;
+
+  // reduce it to a nice object, the same as before
+  const envKeys = Object.keys(denv).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(denv[next]);
+    return prev;
+  }, {});
+
+
   const config = {
     entry: {
       main: './src/index.tsx',
@@ -51,7 +64,7 @@ module.exports = env => {
       react: 'React',
       'react-dom': 'ReactDOM',
     },
-    plugins: [new MonacoWebpackPlugin()],
+    plugins: [new MonacoWebpackPlugin(),new webpack.DefinePlugin(envKeys)],
     optimization: {
       splitChunks: {
         cacheGroups: {

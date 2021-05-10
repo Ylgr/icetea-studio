@@ -30,6 +30,7 @@ import { Header } from './Header';
 import { Toolbar } from './Toolbar';
 import { ViewType, defaultViewTypeForFileType, isViewFileDirty } from './editor/View';
 import { build, deploy as deployTask, run, runTask, openFiles, pushStatus, popStatus } from '../actions/AppActions';
+require('dotenv').config();
 
 import appStore from '../stores/AppStore';
 import {
@@ -100,7 +101,9 @@ import { DeployContractDialog } from './DeployContractDialog';
 import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
 import { isDeepStrictEqual } from 'util';
 import { GlitchWeb3 } from '@glitchdefi/web3';
-const tweb3 = new GlitchWeb3('http://172.16.1.209:26657');
+require('dotenv').config();
+
+const tweb3 = new GlitchWeb3(process.env.REACT_APP_BLOCKCHAIN_RPC);
 
 export interface AppState {
   project: ModelRef<Project>;
@@ -269,9 +272,9 @@ export class App extends React.Component<AppProps, AppState> {
       this.loadProjectFromFiddle(this.state.fiddle);
     }
     let address;
-    tweb3.wallet.importAccount('5nkaot9bhv2oBrx5epK18JsMmjWcRBMYqmQxnCUH53WV');
+    const acc = tweb3.wallet.importAccount('5nkaot9bhv2oBrx5epK18JsMmjWcRBMYqmQxnCUH53WV');
     let account = [];
-    account.push('tglc1tk5tsfhhrjvv37l9575qa6cjpae4urzc6jzlgk');
+    account.push(acc.address);
     for (let i = 0; i < 10; i++) {
       address = tweb3.wallet.createAccount().address;
       account.push(address);
@@ -593,7 +596,7 @@ export class App extends React.Component<AppProps, AppState> {
           label="Edit in Icetea Studio"
           title="Edit Project in Icetea Studio"
           isDisabled={!this.state.fiddle}
-          href={`//172.16.1.209:28443//?f=${this.state.fiddle}`}
+          href={`//${process.env.REACT_APP_HOST}//?f=${this.state.fiddle}`}
           target="wasm.studio"
           rel="noopener noreferrer"
         />

@@ -1,8 +1,10 @@
+require('dotenv').config();
 import * as gulp from 'gulp';
 import { Service, project, activeTab, params, options } from '@wasm/studio-utils';
 import { transpile } from '@glitchdefi/sunseed';
 import { GlitchWeb3 } from '@glitchdefi/web3';
 import * as base64ArrayBuffer from 'base64-arraybuffer';
+require('dotenv').config();
 
 const buildJs = async (file: string) => {
   const inFile = project.getFile('src/' + file + '.djs');
@@ -23,7 +25,7 @@ const buildJs = async (file: string) => {
 };
 
 const deployJs = async (file: string) => {
-  const tweb3 = new GlitchWeb3('http://172.16.1.209:26657');
+  const tweb3 = new GlitchWeb3(process.env.REACT_APP_BLOCKCHAIN_RPC);
 
   // Create a new account to deploy
   // To use existing account, use tweb3.wallet.importAccount(privateKey)
@@ -38,7 +40,7 @@ const deployJs = async (file: string) => {
   }
   const deployResult = await tweb3.deploy({ data: inFile.getData(), arguments: params }, options);
 
-  logLn('TxHash: http://172.16.1.209:3006/tx/' + deployResult.hash);
+  logLn(`TxHash: ${process.env.REACT_APP_EXPLORER}/tx/` + deployResult.hash);
   logLn('Contract address: ' + deployResult.address);
 
   return deployResult;
@@ -57,7 +59,7 @@ const buildWasm = async (file: string) => {
 };
 
 const deployWasm = async (file: string) => {
-  const tweb3 = new GlitchWeb3('http://172.16.1.209:26657');
+  const tweb3 = new GlitchWeb3(process.env.REACT_APP_BLOCKCHAIN_RPC);
 
   // Create a new account to deploy
   // To use existing account, use tweb3.wallet.importAccount(privateKey)
@@ -72,7 +74,7 @@ const deployWasm = async (file: string) => {
   }
   const deployResult = await tweb3.deploy({ mode: 'wasm', data: base64ArrayBuffer.encode(inFile.getData()), arguments: params }, options);
 
-  logLn('TxHash: http://172.16.1.209:3006/tx/' + deployResult.hash);
+  logLn(`TxHash: ${process.env.REACT_APP_EXPLORER}/tx/` + deployResult.hash);
   logLn('Contract address: ' + deployResult.address);
 
   return deployResult;

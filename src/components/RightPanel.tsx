@@ -27,7 +27,8 @@ import { SplitOrientation, SplitInfo, Split } from './Split';
 import appStore from '../stores/AppStore';
 import CallContractDialog from './CallContractDialog';
 import { GlitchWeb3 } from '@glitchdefi/web3';
-const tweb3 = new GlitchWeb3('http://172.16.1.209:26657');
+require('dotenv').config();
+const tweb3 = new GlitchWeb3(process.env.REACT_APP_BLOCKCHAIN_RPC);
 
 export interface MethodInfo {
   name?: string;
@@ -114,7 +115,7 @@ export function formatResult(r, isError) {
       '</span>' +
       '<br><b>Hash</b>: ';
     if (r.hash) {
-      msg += '<a href="http://172.16.1.209:3006/tx/' + r.hash + '">' + r.hash + '</a>';
+      msg += '<a href="' + process.env.REACT_APP_EXPLORER + '/tx/' + r.hash + '">' + r.hash + '</a>';
     } else {
       msg += 'N/A';
     }
@@ -125,7 +126,7 @@ export function formatResult(r, isError) {
       '<br><b>Returned Value</b>:  <span class="Success">' +
       tryStringifyJson(r.returnValue) +
       '</span>' +
-      '<br><b>Hash</b>: <a href="http://172.16.1.209:3006/tx/' +
+      '<br><b>Hash</b>: <a href="' + process.env.REACT_APP_EXPLORER + '/tx/' +
       r.hash +
       '" target="_blank" rel="noopener noreferrer">' +
       r.hash +
