@@ -1,10 +1,8 @@
-require('dotenv').config();
 import * as gulp from 'gulp';
 import { Service, project, activeTab, params, options } from '@wasm/studio-utils';
 import { transpile } from '@glitchdefi/sunseed';
 import { GlitchWeb3 } from '@glitchdefi/web3';
 import * as base64ArrayBuffer from 'base64-arraybuffer';
-require('dotenv').config();
 
 const buildJs = async (file: string) => {
   const inFile = project.getFile('src/' + file + '.djs');

@@ -30,7 +30,6 @@ import { Header } from './Header';
 import { Toolbar } from './Toolbar';
 import { ViewType, defaultViewTypeForFileType, isViewFileDirty } from './editor/View';
 import { build, deploy as deployTask, run, runTask, openFiles, pushStatus, popStatus } from '../actions/AppActions';
-require('dotenv').config();
 
 import appStore from '../stores/AppStore';
 import {
@@ -101,7 +100,6 @@ import { DeployContractDialog } from './DeployContractDialog';
 import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
 import { isDeepStrictEqual } from 'util';
 import { GlitchWeb3 } from '@glitchdefi/web3';
-require('dotenv').config();
 
 const tweb3 = new GlitchWeb3(process.env.REACT_APP_BLOCKCHAIN_RPC);
 

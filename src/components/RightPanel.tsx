@@ -27,7 +27,6 @@ import { SplitOrientation, SplitInfo, Split } from './Split';
 import appStore from '../stores/AppStore';
 import CallContractDialog from './CallContractDialog';
 import { GlitchWeb3 } from '@glitchdefi/web3';
-require('dotenv').config();
 const tweb3 = new GlitchWeb3(process.env.REACT_APP_BLOCKCHAIN_RPC);
 
 export interface MethodInfo {
